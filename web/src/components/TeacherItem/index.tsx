@@ -4,37 +4,46 @@ import whatsAppIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
 
-const TeacherItem = () => {
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   return (
     <article className="teacher-item">
       <header>
-        <img
-          src="https://avatars1.githubusercontent.com/u/47990172?s=460&u=7ca90ac41ea8e16ff9718bfd39b13cbc13e72ab4&v=4"
-          alt="Ian Bittencourt"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Ian Bittencourt</strong>
-          <span>Física</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
-      <p>
-        Professor de Física. Ministra e prepara o material didático das aulas de
-        Física conforme orientação e conteúdo previamente distribuído, aplica
-        provas, desenvolve trabalhos em aula e esclarece dúvidas.
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço por hora
-          <strong>R$ 60,00</strong>
+          <strong>R$ {teacher.cost}</strong>
         </p>
-        <button type="button">
+        <a
+          href={`https://wa.me/${teacher.whatsapp}?text=Olá!%Gostaria%de%marcar%uma%aula%de${teacher.subject}!`}
+        >
           <img
             src={whatsAppIcon}
             alt="Ícone do WhatsApp para entrar em contato"
           />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );

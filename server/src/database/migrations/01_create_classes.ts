@@ -8,7 +8,7 @@ export async function up(knex: Knex) {
 
     table
       .integer('user_id')
-      .nullable()
+      .notNullable()
       .references('id')
       .inTable('users')
       .onUpdate('CASCADE')

@@ -1,49 +1,22 @@
 import { Request, Response } from 'express';
 import db from '../database/connection';
 
-interface HTTPParams {
-  request: Request;
-  response: Response;
-}
+export default class ConnectionsController {
+  async index(req: Request, res: Response) {
+    const totalConnections = await db('connections').count('* as total');
 
-export default class ConnectionController {
-  async index({ request, response }: HTTPParams) {
-    try {
-      const totalConnections = await db('connections').count('* as total');
+    const { total } = totalConnections[0];
 
-      const { total } = totalConnections[0];
-
-      return response.status(200).json(total);
-    } catch (err) {
-      console.log(err);
-
-      return response
-        .status(400)
-        .json({ error: 'Unexpected error while showing the connections!' });
-    }
+    return res.json({ total });
   }
 
-  async create({ request, response }: HTTPParams) {
-    const { user_id } = request.body;
+  async create(req: Request, res: Response) {
+    const { user_id } = req.body;
 
-    const trx = await db.transaction();
+    await db('connections').insert({
+      user_id,
+    });
 
-    try {
-      await trx('connections').insert({
-        user_id,
-      });
-
-      await trx.commit();
-
-      return response.status(201).send();
-    } catch (err) {
-      await trx.rollback();
-
-      console.log(err);
-
-      return response
-        .status(400)
-        .json({ error: 'Unexpected error while creating a new connection!' });
-    }
+    return res.status(201).send();
   }
 }

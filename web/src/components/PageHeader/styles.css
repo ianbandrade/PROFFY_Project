@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   color: var(--color-text-in-primary);
-  padding: 1.6rem 0;
+  padding: 1.6rem 1.2rem;
 }
 
 .page-header .top-bar-container a {
@@ -37,7 +37,16 @@
 .page-header .header-content strong {
   font: 700 3.6rem Archivo;
   line-height: 4.2rem;
+  margin-top: 2.4rem;
   color: var(--color-title-in-primary);
+}
+
+.page-header .header-content p {
+  max-width: 30rem;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  color: var(--color-text-in-primary);
+  padding: 2.2rem 0 4rem;
 }
 
 @media (min-width: 700px) {

@@ -6,16 +6,13 @@ export async function up(knex: Knex) {
 
     table
       .integer('user_id')
-      .nullable()
+      .notNullable()
       .references('id')
       .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
 
-    table
-      .timestamp('created_at')
-      .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
-      .notNullable();
+    table.timestamp('created_at').defaultTo('now()').notNullable();
   });
 }
 
