@@ -35,18 +35,32 @@
 }
 
 .input-block::after {
-  transition: 0.555s;
+  transition: 0.4s;
+
   width: 0rem;
   height: 0.3rem;
   border-radius: 2.6rem;
+
   content: '';
   background: var(--color-primary-light);
+
   position: absolute;
+
   left: 1.6rem;
   right: 1.6rem;
   bottom: 0;
 }
 
+@keyframes createBar {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 .input-block:focus-within::after {
+  animation: createBar 500ms;
   width: calc(100% - 3.2rem);
 }

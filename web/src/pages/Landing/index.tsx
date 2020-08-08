@@ -8,8 +8,9 @@ import studyIcon from '../../assets/images/icons/study.svg';
 import giveClassesIcon from '../../assets/images/icons/give-classes.svg';
 import heartIcon from '../../assets/images/icons/heart.svg';
 
-import './styles.css';
 import api from '../../services/api';
+
+import './styles.css';
 
 const Landing = () => {
   const [totalConnections, setTotalConnections] = useState(0);
