@@ -73,7 +73,7 @@ Access API at http://localhost:3333/
 
 ```bash
 # Go to web folder
-$ cd PROFFY_Project/webs
+$ cd PROFFY_Project/web
 
 # Install Dependencies
 $ yarn install
