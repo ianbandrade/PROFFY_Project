@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div align="center">
   <img width="400px" alt="Logo" src="./assets/img/logo.svg"/>
 </div>
@@ -88,9 +87,3 @@ Go to http://localhost:3000/ to see the result.
 ## License
 
 This project is under the MIT license. See the file [LICENSE](LICENSE) for more details.
-
----
-=======
-PROFFY_Project
-[![Run on Repl.it](https://repl.it/badge/github/ianbandrade/PROFFY_Project)](https://repl.it/github/ianbandrade/PROFFY_Project)
->>>>>>> master
