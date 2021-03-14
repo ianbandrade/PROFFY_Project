@@ -63,7 +63,7 @@ $ cd PROFFY_Project/server
 # Install Dependencies
 $ yarn install
 
-# Run Aplication
+# Run Application
 $ yarn start
 ```
 
@@ -78,7 +78,7 @@ $ cd PROFFY_Project/web
 # Install Dependencies
 $ yarn install
 
-# Run Aplication
+# Run Application
 $ yarn start
 ```
 
